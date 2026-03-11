@@ -168,17 +168,6 @@ export default {
           category="advanced"
         />
       </Tab>
-      <Tab
-        name="ui"
-        :label="t('harvester.setting.tabs.ui')"
-        :weight="89"
-      >
-        <Settings
-          :settings="settings"
-          :search-query="searchQuery"
-          category="ui"
-        />
-      </Tab>
     </Tabbed>
   </div>
 </template>

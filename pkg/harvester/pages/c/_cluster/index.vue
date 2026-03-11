@@ -18,6 +18,6 @@ export default {
 
 <template>
   <div>
-    This is harvester Dashboard.
+    This is Skylus Essentials Dashboard.
   </div>
 </template>

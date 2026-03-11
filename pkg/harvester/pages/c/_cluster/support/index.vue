@@ -19,14 +19,7 @@ export default {
   },
 
   data() {
-    return {
-      options: {
-        'footer.docs':   'https://docs.harvesterhci.io',
-        'footer.forums': 'https://forums.rancher.com/c/harvester/',
-        'footer.slack':  'https://slack.rancher.io',
-        'footer.issue':  'https://github.com/harvester/harvester/issues/new/choose'
-      }
-    };
+    return { options: { 'footer.docs': 'https://docs.harvesterhci.io' } };
   },
 
   computed: {
@@ -93,7 +86,10 @@ export default {
 
 <template>
   <div>
-    <BannerGraphic :title="t(title, {}, true)" />
+    <div class="skylus-banner">
+      <img src="../../../../assets/skylus-banner.svg" />
+      <h1>{{ t(title, {}, true) }}</h1>
+    </div>
 
     <IndentedPanel>
       <div class="content mt-20">
@@ -182,19 +178,6 @@ export default {
         <div class="community">
           <CommunityLinks :link-options="options" />
         </div>
-        <div class="external">
-          <a
-            href="https://www.suse.com/suse-harvester/support-matrix/all-supported-versions"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-          >{{ t('harvester.support.community.learnMore') }} <i class="icon icon-external-link" /></a>
-          or
-          <a
-            href="https://www.suse.com/products/harvester/"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-          >{{ t('harvester.support.community.pricing') }} <i class="icon icon-external-link" /></a>
-        </div>
       </div>
     </IndentedPanel>
     <HarvesterSupportBundle v-if="showSupportBundle" />
@@ -257,5 +240,30 @@ export default {
   margin: 0 -5px 0 -5px;
   padding: 5px;
   background-color: var(--warning-banner-bg);
+}
+
+.skylus-banner {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: white;
+  }
 }
 </style>

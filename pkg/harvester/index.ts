@@ -8,6 +8,7 @@ import customValidators from './validators';
 import { PRODUCT_NAME } from './config/harvester';
 import { defineAsyncComponent } from 'vue';
 import en from './l10n/en-us.yaml';
+import SkylusBannerGraphic from './components/SkylusBannerGraphic.vue'
 
 // Init the package
 export default function (plugin: IPlugin) {
@@ -37,4 +38,6 @@ export default function (plugin: IPlugin) {
   plugin.register('component', 'NavHeaderRight', defineAsyncComponent(() =>
     import('./components/HarvesterUpgradeHeader.vue')
   ));
+
+  plugin.addComponent('BannerGraphic', SkylusBannerGraphic);
 }
