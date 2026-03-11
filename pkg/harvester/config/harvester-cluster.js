@@ -89,7 +89,7 @@ export function init($plugin, store) {
       getVersionInfo:    (store) => store.getters[`${ PRODUCT_NAME }/byId`]?.(HCI.SETTING, 'server-version')?.value || 'unknown',
       afterLoginRoute:   home,
       logoRoute:         home,
-      supportCustomLogo: true
+      supportCustomLogo: false
     });
   }
 

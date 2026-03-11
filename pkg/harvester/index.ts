@@ -7,6 +7,7 @@ import harvesterStore from './store/harvester-store';
 import customValidators from './validators';
 import { PRODUCT_NAME } from './config/harvester';
 import { defineAsyncComponent } from 'vue';
+import en from './l10n/en-us.yaml';
 
 // Init the package
 export default function (plugin: IPlugin) {
@@ -19,8 +20,11 @@ export default function (plugin: IPlugin) {
   // Provide plugin metadata from package.json
   plugin.metadata = require('./package.json');
 
+  
   // Built-in icon
   plugin.metadata.icon = require('./icon.svg');
+  plugin.addLocale('en-us', en);
+
 
   plugin.addProduct(require('./config/harvester-cluster'));
 
