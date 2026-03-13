@@ -8,7 +8,6 @@ import customValidators from './validators';
 import { PRODUCT_NAME } from './config/harvester';
 import { defineAsyncComponent } from 'vue';
 import en from './l10n/en-us.yaml';
-import SkylusBannerGraphic from './components/SkylusBannerGraphic.vue'
 
 // Init the package
 export default function (plugin: IPlugin) {
@@ -20,12 +19,9 @@ export default function (plugin: IPlugin) {
 
   // Provide plugin metadata from package.json
   plugin.metadata = require('./package.json');
-
-  
   // Built-in icon
   plugin.metadata.icon = require('./icon.svg');
   plugin.addLocale('en-us', en);
-
 
   plugin.addProduct(require('./config/harvester-cluster'));
 
@@ -39,5 +35,7 @@ export default function (plugin: IPlugin) {
     import('./components/HarvesterUpgradeHeader.vue')
   ));
 
-  plugin.addComponent('BannerGraphic', SkylusBannerGraphic);
+  plugin.register('component', 'NavHeaderRight', defineAsyncComponent(() =>
+  import('./components/HarvesterUpgradeHeader.vue')
+));
 }

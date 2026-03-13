@@ -83,14 +83,19 @@ export function init($plugin, store) {
     };
 
     store.dispatch('setIsSingleProduct', {
-      productName:       PRODUCT_NAME,
-      logo:              require(`@shell/assets/images/providers/harvester.svg`),
+      productName:       'Skylus Essentials',
+      logo:              require(`../assets/skylus-logo.svg`),
       productNameKey:    'harvester.productLabel',
       getVersionInfo:    (store) => store.getters[`${ PRODUCT_NAME }/byId`]?.(HCI.SETTING, 'server-version')?.value || 'unknown',
       afterLoginRoute:   home,
       logoRoute:         home,
       supportCustomLogo: false
     });
+
+    // Force browser tab title
+    if (typeof window !== 'undefined') {
+      document.title = 'Skylus Essentials';
+    }
   }
 
   product({

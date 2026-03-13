@@ -1,7 +1,6 @@
 <script>
 import { mapGetters } from 'vuex';
 import { PLUGIN_DEVELOPER, DEV } from '@shell/store/prefs';
-import BannerGraphic from '@shell/components/BannerGraphic';
 import IndentedPanel from '@shell/components/IndentedPanel';
 import CommunityLinks from '@shell/components/CommunityLinks';
 import { SCHEMA } from '@shell/config/types';
@@ -12,7 +11,6 @@ import { docLink } from '../../../../utils/feature-flags';
 
 export default {
   components: {
-    BannerGraphic,
     IndentedPanel,
     CommunityLinks,
     HarvesterSupportBundle

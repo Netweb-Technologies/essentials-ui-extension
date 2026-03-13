@@ -2030,3 +2030,41 @@ typeLabel:
       one { IP Pool }
       other { IP Pools }
     }
+
+login:
+  login: Login
+  howdy: Hi!
+  welcome: Welcome to Skylus Essentials
+  landscapeAlt: Landscape image
+  loggedOut: You have been logged out.
+  loggedOutSessionIdle: You've been logged out of Skylus Essentials because your session has expired. Log in again to continue.
+  loggedOutFromSso: You've been logged out of Skylus Essentials, however you may still be logged in to your single sign-on identity provider.
+  loggedOutFromSlo: You've been logged out of Skylus Essentials and from your single sign-on identity provider.
+  loginAgain: Log in again to continue.
+  serverError:
+    authFailedCreds: "Logging in failed: Check credentials, or your account may not be authorized to log in."
+    authFailed: "Logging in failed: Your account may not be authorized to log in."
+    unknown: "An unknown error occurred while attempting to login. Please contact your system administrator."
+    invalidSamlAttrs: "Invalid saml attributes"
+    noResponse: "No response received"
+  error: An error occurred logging in. Please try again.
+  invalidResponseError: Invalid response received to login request. Please try again.
+  clientError: Invalid username or password. Please try again.
+  userUnauthorized: You are not authorized to use this system.
+  specificError: 'An error occurred logging in: {msg}'
+  useLocal: Use a local user
+  loginWithProvider: Log in with {provider}
+  username: Username
+  password: Password
+  loggingIn: Logging in...
+  loggedIn: Logged in
+  loginWithLocal: Log in
+  useProvider: Use a {provider} user
+  useNonLocal: Use a non-local user
+  remember:
+    label: Remember Username
+  cli:
+    welcome: Login to complete CLI authentication
+    invalidParams: Invalid login parameters - can not login
+    warning: 'If you did not initiate this request or the "Client Request Id" shown in your terminal does not match the code shown below, do not continue'
+    warningLegacy: 'If you did not initiate this request or the code shown below does not match the "requestId" parameter shown as part of the login url in your terminal, do not continue'
