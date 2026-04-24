@@ -1334,6 +1334,8 @@ harvester:
     community:
       learnMore: Find out more about Skylus Essentials support
       pricing: Contact us for pricing
+      title: Links
+    description: Tools and resources to help you troubleshoot, debug, and get the most out of Skylus Essentials.
 
   namespace:
     label: Namespaces

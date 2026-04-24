@@ -164,7 +164,7 @@ export default {
     <h1 class="mb-20">
       {{ t('branding.label') }}
     </h1>
-    <TypeDescription resource="harvester" />
+    <TypeDescription resource="Skylus Essentials" />
     <div>
       <div class="row mb-20">
         <div class="col span-6">
