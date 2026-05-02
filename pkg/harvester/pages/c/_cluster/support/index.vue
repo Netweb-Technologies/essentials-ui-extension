@@ -238,7 +238,7 @@ export default {
 
   &__title {
     font-size: 32px;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--body-text, #1a1f36);
     margin: 0 0 8px;
   }
@@ -313,7 +313,7 @@ export default {
   }
 
   &__title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--body-text, #1a1f36);
     margin: 0 0 6px;
@@ -354,7 +354,7 @@ export default {
   }
 
   &__title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     margin: 0 0 12px;
 

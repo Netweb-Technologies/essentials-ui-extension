@@ -1294,7 +1294,7 @@ harvester:
         retention: How long to retain metrics
         retentionSize: Maximum size of metrics
     clusterRegistrationUrl:
-      message: To completely unset the imported Skylus Essentials cluster, please also remove it on the Rancher Dashboard UI via the <code> Virtualization Management </code> page.
+      message: To completely unset the imported Skylus Essentials cluster, please also remove it on the Skylus Essentials Manager Dashboard UI via the <code> Virtualization Management </code> page.
     ntpServers:
       isNotIPV4: The address you entered is not IPv4 or host. Please enter a valid IPv4 address or a host address.
       isDuplicate: There are duplicate NTP server configurations.
@@ -1326,8 +1326,8 @@ harvester:
       titleDescription: Download kubeconfig for debugging.
     internal:
       rancher:
-        title: Access Embedded Rancher UI
-        titleDescription: You can only use the embedded Rancher UI for debugging and validation purposes. For more information about how Skylus Essentials integrates with Rancher, see the <a target="_blank" href="{url}" rel="noopener noreferrer nofollow">documentation</a>.
+        title: Access Embedded Manager UI
+        titleDescription: You can only use the embedded Skylus Essentials Manager UI for debugging and validation purposes. For more information about how Skylus Essentials integrates with Skylus Essentials Manager, see the <a target="_blank" href="{url}" rel="noopener noreferrer nofollow">documentation</a>.
       longhorn:
         title: Access Embedded Longhorn UI
         titleDescription: We only support to use the embedded Longhorn UI for debugging and validation purpose.
@@ -1553,15 +1553,15 @@ harvester:
     descriptions:
       'harvester-system/vm-import-controller': vm-import-controller is an add-on to help migrate virtual machine workloads from other source clusters to an existing Skylus Essentials cluster.
       'harvester-system/pcidevices-controller': pcidevices-controller is an add-on to help discover PCI devices for nodes in your cluster and allow users to prepare devices for PCI Passthrough, for use with Skylus Essentials virtual machine and guest clusters.
-      'cattle-logging-system/rancher-logging': rancher-logging is an add-on to collect versatile logs, events, and audits from the Skylus Essentials cluster and route them to many kinds of servers based on flows.
-      'harvester-system/rancher-vcluster': rancher-vcluster deploys a virtual cluster (vcluster) with Rancher installed.
-      'cattle-monitoring-system/rancher-monitoring': rancher-monitoring is an add-on that collects Skylus Essentials cluster and virtual machine metrics and allows you to view the metrics on an embedded dashboard and send alert(s) to remote servers.
+      'cattle-logging-system/rancher-logging': Skylus Essentials Manager-logging is an add-on to collect versatile logs, events, and audits from the Skylus Essentials cluster and route them to many kinds of servers based on flows.
+      'harvester-system/rancher-vcluster': Skylus Essentials Manager-vcluster deploys a virtual cluster (vcluster) with Skylus Essentials Manager installed.
+      'cattle-monitoring-system/rancher-monitoring': Skylus Essentials Manager-monitoring is an add-on that collects Skylus Essentials cluster and virtual machine metrics and allows you to view the metrics on an embedded dashboard and send alert(s) to remote servers.
       'vm-import-controller': vm-import-controller is an add-on to help migrate virtual machine workloads from other source clusters to an existing Skylus Essentials cluster.
       'pcidevices-controller': pcidevices-controller is an add-on to help discover PCI devices for nodes in your cluster and allow users to prepare devices for PCI Passthrough, for use with Skylus Essentials virtual machines and guest clusters.
       'nvidia-driver-toolkit': 'nvidia-driver-toolkit is an add-on to enable vGPU devices and assign them to Skylus Essentials virtual machines.'
-      'rancher-logging': rancher-logging is an add-on to collect versatile logs, events, and audits from the Skylus Essentials cluster and route them to many kinds of servers based on flows.
-      'rancher-monitoring': rancher-monitoring is an add-on to collect Skylus Essentials cluster and virtual machine metrics, view them on the embedded dashboard, and send alert(s) to remote servers.
-      'rancher-vcluster': rancher-vcluster deploys a virtual cluster (vcluster) with Rancher installed.
+      'rancher-logging': Skylus Essentials Manager-logging is an add-on to collect versatile logs, events, and audits from the Skylus Essentials cluster and route them to many kinds of servers based on flows.
+      'rancher-monitoring': Skylus Essentials Manager-monitoring is an add-on to collect Skylus Essentials cluster and virtual machine metrics, view them on the embedded dashboard, and send alert(s) to remote servers.
+      'rancher-vcluster': Skylus Essentials Manager-vcluster deploys a virtual cluster (vcluster) with Skylus Essentials Manager installed.
       'harvester-seeder': Skylus Essentials-seeder is an add-on that uses IPMI and Redfish to discover hardware information and perform out-of-band operations.
       'harvester-system/harvester-seeder': Skylus Essentials-seeder is an add-on that uses IPMI and Redfish to discover hardware information and perform out-of-band operations.
       'harvester-csi-driver-lvm': Skylus Essentials-csi-driver-lvm is an add-on allowing users to create PVC through the LVM with local devices.
@@ -1571,9 +1571,9 @@ harvester:
         basic: Basic
         pvc: Volume
     rancherVcluster:
-      accessRancher: Access the Rancher Dashboard
+      accessRancher: Access the Skylus Essentials Manager Dashboard
       hostname: Hostname
-      rancherVersion: Rancher Version
+      rancherVersion: Skylus Essentials Manager Version
       password: Bootstrap Password
     switchFailed: "{action} {name} failed!"
     nvidiaDriverToolkit:

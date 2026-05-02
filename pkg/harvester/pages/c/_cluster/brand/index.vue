@@ -21,63 +21,41 @@ export default {
   components: {
     LabeledInput, Checkbox, FileSelector, Loading, SimpleBox, AsyncButton, Banner, ColorInput, TypeDescription
   },
-  async fetch() {
-    const hash = await allHash({
-      uiPLSetting:        this.$store.dispatch('management/find', { type: MANAGEMENT.SETTING, id: SETTING.PL }),
-      uiLogoDarkSetting:  fetchOrCreateSetting(this.$store, SETTING.LOGO_DARK, ''),
-      uiLogoLightSetting: fetchOrCreateSetting(this.$store, SETTING.LOGO_LIGHT, ''),
-      uiColorSetting:     fetchOrCreateSetting(this.$store, SETTING.PRIMARY_COLOR, ''),
-      uiLinkColorSetting: fetchOrCreateSetting(this.$store, SETTING.LINK_COLOR, ''),
-      uiFaviconSetting:   fetchOrCreateSetting(this.$store, SETTING.FAVICON, ''),
-    });
+//   async fetch() {
+//   // comment everything OR leave empty
 
-    Object.assign(this, hash);
-    if (hash.uiLogoDarkSetting.value) {
-      try {
-        this.uiLogoDark = hash.uiLogoDarkSetting.value;
-        this.customizeLogo = true;
-      } catch {}
-    }
-    if (hash.uiLogoLightSetting.value) {
-      try {
-        this.uiLogoLight = hash.uiLogoLightSetting.value;
-        this.customizeLogo = true;
-      } catch {}
-    }
-    if (hash.uiFaviconSetting.value) {
-      try {
-        this.uiFavicon = hash.uiFaviconSetting.value;
-        this.customizeFavicon = true;
-      } catch {}
-    }
-    if (hash.uiColorSetting.value) {
-      this.uiColor = Color(hash.uiColorSetting.value).hex();
-      this.customizeColor = true;
-    }
-    if (hash.uiLinkColorSetting.value) {
-      this.uiLinkColor = Color(hash.uiLinkColorSetting.value).hex();
-      this.customizeLinkColor = true;
-    }
-  },
+//   // HARD OVERRIDE
+//   this.uiPLSetting = { value: 'Skylus Essentials' };
+//   this.uiLogoDark = '/img/dark-logo.png';
+//   this.uiLogoLight = '/img/light-logo.png';
+//   this.uiFavicon = '/img/favicon.ico';
+//   this.uiColor = '#0f62fe';
+//   this.uiLinkColor = '#0f62fe';
+
+//   this.customizeLogo = true;
+//   this.customizeFavicon = true;
+//   this.customizeColor = true;
+//   this.customizeLinkColor = true;
+// },
   data() {
     return {
-      vendor:             getVendor(),
-      uiPLSetting:        {},
-      uiLogoDarkSetting:  {},
-      uiLogoDark:         '',
-      uiLogoLightSetting: {},
-      uiLogoLight:        '',
-      customizeLogo:      false,
-      uiFaviconSetting:   {},
-      uiFavicon:          '',
-      customizeFavicon:   false,
-      uiColorSetting:     {},
-      uiColor:            null,
-      customizeColor:     false,
-      uiLinkColorSetting: {},
-      uiLinkColor:        null,
-      customizeLinkColor: false,
-      errors:             [],
+      vendor: 'Skylus Essentials',   // hardcoded
+      uiPLSetting: { value: 'Skylus Essentials' },
+
+      uiLogoDark: '/img/dark-logo.png',
+      uiLogoLight: '/img/light-logo.png',
+      customizeLogo: true,
+
+      uiFavicon: '/img/favicon.ico',
+      customizeFavicon: true,
+
+      uiColor: '#0f62fe',
+      customizeColor: true,
+
+      uiLinkColor: '#0f62fe',
+      customizeLinkColor: true,
+
+      errors: [],
     };
   },
   computed: {
@@ -85,6 +63,7 @@ export default {
       const schema = this.$store.getters[`management/schemaFor`](MANAGEMENT.SETTING);
 
       return schema?.resourceMethods?.includes('PUT') ? _EDIT : _VIEW;
+      return 'edit';
     },
     customLinkColor() {
       return { color: this.uiLinkColor };
@@ -100,8 +79,10 @@ export default {
       uiLinkColor = getComputedStyle(suse).getPropertyValue('--link');
     }
     // Only set the color to the default if not already set from the custom color
-    this.uiColor = this.uiColor || uiColor.trim();
-    this.uiLinkColor = this.uiLinkColor || uiLinkColor.trim();
+    this.uiColor = '#0f62fe';
+    this.uiLinkColor = '#0f62fe';
+    setVendor(this.uiPLSetting.value);
+    setFavIcon(this.$store);
   },
   methods: {
     updateLogo(img, key) {
@@ -112,54 +93,19 @@ export default {
       this.errors.push(e);
     },
     async save(btnCB) {
-      this.uiPLSetting.value = this.uiPLSetting.value.replaceAll(/[\<>&=#()"]/gm, '');
-      if (this.customizeLogo) {
-        this.uiLogoLightSetting.value = this.uiLogoLight;
-        this.uiLogoDarkSetting.value = this.uiLogoDark;
-      } else {
-        this.uiLogoLightSetting.value = '';
-        this.uiLogoDarkSetting.value = '';
-      }
-      if (this.customizeFavicon) {
-        this.uiFaviconSetting.value = this.uiFavicon;
-      } else {
-        this.uiFaviconSetting.value = '';
-      }
-      if (this.customizeColor) {
-        this.uiColorSetting.value = Color(this.uiColor).rgb().string();
-      } else {
-        this.uiColorSetting.value = null;
-      }
-      if (this.customizeLinkColor) {
-        this.uiLinkColorSetting.value = Color(this.uiLinkColor).rgb().string();
-      } else {
-        this.uiLinkColorSetting.value = null;
-      }
-      this.errors = [];
-      try {
-        await Promise.all([
-          this.uiPLSetting.save(),
-          this.uiLogoDarkSetting.save(),
-          this.uiLogoLightSetting.save(),
-          this.uiColorSetting.save(),
-          this.uiLinkColorSetting.save(),
-          this.uiFaviconSetting.save()
-        ]);
-        if (this.uiPLSetting.value !== this.vendor) {
-          setVendor(this.uiPLSetting.value);
-        }
-        setFavIcon(this.$store);
-        btnCB(true);
-      } catch (err) {
-        this.errors.push(err);
-        btnCB(false);
-      }
-    },
+  console.log('Hardcoded mode - nothing to save');
+
+  // Optional: still apply vendor + favicon
+  setVendor(this.uiPLSetting.value);
+  setFavIcon(this.$store);
+
+  btnCB(true);
+    }
   }
 };
 </script>
 <template>
-  <Loading v-if="$fetchState.pending" />
+  <Loading v-if="false" />
   <div v-else>
     <h1 class="mb-20">
       {{ t('branding.label') }}
