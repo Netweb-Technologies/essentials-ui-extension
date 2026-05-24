@@ -296,7 +296,6 @@ export default {
     width: 56px;
     height: 56px;
     flex-shrink: 0;
-    background: var(--accent-btn, #eef2ff);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -411,7 +410,6 @@ export default {
   &__icon {
     width: 36px;
     height: 36px;
-    background: var(--accent-btn, #eef2ff);
     border-radius: 8px;
     display: flex;
     align-items: center;

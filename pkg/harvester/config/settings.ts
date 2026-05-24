@@ -62,16 +62,11 @@ export const HCI_ALLOWED_SETTINGS = {
     kind: 'json', from: 'import', featureFlag: 'csiOnlineExpandValidation'
   },
   [HCI_SETTING.SERVER_VERSION]:               { readOnly: true },
-  [HCI_SETTING.UPGRADE_CHECKER_ENABLED]:      { kind: 'boolean' },
-  [HCI_SETTING.UPGRADE_CHECKER_URL]:          { kind: 'url' },
   [HCI_SETTING.HTTP_PROXY]:                   { kind: 'json', from: 'import' },
   [HCI_SETTING.ADDITIONAL_CA]:                {
     kind: 'multiline', canReset: true, from: 'import'
   },
   [HCI_SETTING.OVERCOMMIT_CONFIG]:                      { kind: 'json', from: 'import' },
-  [HCI_SETTING.SUPPORT_BUNDLE_TIMEOUT]:                 { kind: 'number' },
-  [HCI_SETTING.SUPPORT_BUNDLE_EXPIRATION]:              { kind: 'number' },
-  [HCI_SETTING.SUPPORT_BUNDLE_NODE_COLLECTION_TIMEOUT]: { kind: 'number', featureFlag: 'supportBundleNodeCollectionTimeoutSetting' },
   [HCI_SETTING.SUPPORT_BUNDLE_IMAGE]:                   { kind: 'json', from: 'import' },
   [HCI_SETTING.STORAGE_NETWORK]:                        {
     kind: 'custom', from: 'import', canReset: true
@@ -83,7 +78,7 @@ export const HCI_ALLOWED_SETTINGS = {
   },
   [HCI_SETTING.SUPPORT_BUNDLE_NAMESPACES]: { from: 'import', canReset: true },
   [HCI_SETTING.AUTO_DISK_PROVISION_PATHS]: { canReset: true },
-  [HCI_SETTING.RELEASE_DOWNLOAD_URL]:      { kind: 'url' },
+  
   [HCI_SETTING.CONTAINERD_REGISTRY]:       {
     kind: 'json', from: 'import', canReset: true
   },
@@ -97,20 +92,12 @@ export const HCI_ALLOWED_SETTINGS = {
     kind: 'json', from: 'import', canReset: true
   },
   [HCI_SETTING.KUBECONFIG_DEFAULT_TOKEN_TTL_MINUTES]:   { kind: 'number', featureFlag: 'kubeconfigDefaultTokenTTLMinutesSetting' },
-  [HCI_SETTING.LONGHORN_V2_DATA_ENGINE_ENABLED]:        {
-    kind:         'boolean',
-    experimental: true,
-    featureFlag:  'longhornV2LVMSupport'
-  },
   [HCI_SETTING.ADDITIONAL_GUEST_MEMORY_OVERHEAD_RATIO]: { kind: 'string', from: 'import' },
   [HCI_SETTING.UPGRADE_CONFIG]:                         {
     kind:         'json',
     from:         'import',
     featureFlag: 'upgradeConfigSetting',
     docPath:      'UPGRADE_CONFIG_URL'
-  },
-  [HCI_SETTING.RANCHER_CLUSTER]:                        {
-    kind: 'custom', from: 'import', canReset: true, featureFlag: 'rancherClusterSetting'
   },
   [HCI_SETTING.MAX_HOTPLUG_RATIO]:    { kind: 'number', featureFlag: 'cpuMemoryHotplug' },
   [HCI_SETTING.VM_MIGRATION_NETWORK]:  {
