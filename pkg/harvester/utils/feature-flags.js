@@ -4,7 +4,7 @@ import { RELEASE_FEATURES } from '../config/feature-flags';
 export const docLink = (suffix, version) => {
   const docVersion = `v${ semver.major(version) }.${ semver.minor(version) }`;
 
-  return `https://docs.harvesterhci.io/${ docVersion }${ suffix }`;
+  return `https://docs.netwebblr.com/docs/skylus-essentials/${ suffix }`;
 };
 
 export function getVersion(v) {

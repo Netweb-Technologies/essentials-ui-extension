@@ -102,5 +102,26 @@ const routes = [
   },
 
 ];
+const skylusAliases = routes.map((r) => {
+  const clone = { ...r };
+
+  if (clone.name) {
+    clone.name = `${ clone.name }-skylus`;
+  }
+
+  if (clone.path?.startsWith('/:product')) {
+    clone.path = clone.path.replace('/:product', '/skylus-essentials');
+  }
+
+  if (clone.route?.path?.startsWith('/:product')) {
+    clone.route = { ...clone.route };
+    clone.route.name = `${ clone.route.name }-skylus`;
+    clone.route.path = clone.route.path.replace('/:product', '/skylus-essentials');
+  }
+
+  return clone;
+});
+
+routes.push(...skylusAliases);
 
 export default routes;
