@@ -223,7 +223,7 @@ export default {
           :value="value.displayName"
         />
       </div>
-      <div
+      <!-- <div
         v-if="value.path"
         class="col span-4"
       >
@@ -231,7 +231,7 @@ export default {
           :name="t('harvester.host.disk.path.label')"
           :value="value.path"
         />
-      </div>
+      </div> -->
       <div class="col span-4">
         <LabelValue
           :name="t('harvester.host.disk.provisioner')"
