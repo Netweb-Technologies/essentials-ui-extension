@@ -56,7 +56,7 @@ export default {
       const prefix = window.location.pathname.replace(this.$route.path, '');
       const params = this.$route?.params;
 
-      const url = `https://${ host }${ prefix }/${ PRODUCT_NAME }/c/${ params.cluster }/console/${ uid }/${ type }`;
+      const url = `https://${ host }${ prefix }/harvester/c/${ params.cluster }/console/${ uid }/${ type }`;
 
       window.open(
         url,
