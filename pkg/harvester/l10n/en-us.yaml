@@ -1329,8 +1329,8 @@ harvester:
         title: Access Embedded Manager UI
         titleDescription: You can only use the embedded Skylus Essentials Manager UI for debugging and validation purposes. For more information about how Skylus Essentials integrates with Skylus Essentials Manager, see the <a target="_blank" href="{url}" rel="noopener noreferrer nofollow">documentation</a>.
       longhorn:
-        title: Access Embedded Essentials Block UI
-        titleDescription: We only support to use the embedded Essentials Block UI for debugging and validation purpose.
+        title: Access Embedded Longhorn UI
+        titleDescription: We only support to use the embedded Longhorn UI for debugging and validation purpose.
     community:
       learnMore: Find out more about Skylus Essentials support
       pricing: Contact us for pricing
