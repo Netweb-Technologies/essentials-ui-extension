@@ -57,7 +57,7 @@ export default {
     rancherLink() {
       const { host, prefix, params } = this.internalPrefix;
 
-      return `https://${ host }${ prefix }/c/${ params.cluster }/explorer`;
+      return `https://${ host }/c/${ params.cluster }/explorer`;
     },
 
     longhornLink() {
