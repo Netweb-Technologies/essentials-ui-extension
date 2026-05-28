@@ -235,11 +235,11 @@ export default {
           >
             {{ t('harvester.host.console') }}
           </button>
-          <a
+          <!-- <a
             v-if="!row.consoleUrl"
             :href="consoleDocLink"
             target="_blank"
-          ><i class="icon icon-info" /></a>
+          ><i class="icon icon-info" /></a> -->
         </div>
       </template>
     </ResourceTable>

@@ -114,6 +114,15 @@ export default class HciNamespace extends namespace {
 
     return isSettingSystemNamespace || isObscurePrefix;
   }
+    get nameDisplay() {
+    return this.metadata?.name?.replaceAll(
+      'harvester-public',
+      'skylus-essentials-public'
+    ) || this.id?.replaceAll(
+      'harvester-public',
+      'skylus-essentials-public'
+    );
+  }
 
   get detailLocation() {
     const id = this.id?.replace(/.*\//, '');

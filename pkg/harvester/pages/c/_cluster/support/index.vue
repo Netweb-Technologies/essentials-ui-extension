@@ -17,8 +17,15 @@ export default {
   },
 
   data() {
-    return { options: { 'footer.docs': 'https://docs.netwebblr.com/docs/skylus-essentials/user-guide' } };
-  },
+  return {
+    options: {
+      'footer.docs': {
+        url: '/docs/skylus-essentials/user-guide',
+        target: '_blank'
+      }
+    }
+  };
+},
 
   computed: {
     ...mapGetters(['currentCluster']),
@@ -203,7 +210,14 @@ export default {
               <span class="links-card__heading">{{ t('harvester.support.community.title', {}, true) || 'Links' }}</span>
             </div>
             <div class="links-card__body">
-              <CommunityLinks :link-options="options" />
+              <a
+                class="docs-link"
+                href="/docs/skylus-essentials/user-guide"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Docs
+              </a>
             </div>
           </div>
         </div>
@@ -421,7 +435,16 @@ export default {
       object-fit: contain;
   }
   }
-
+  .docs-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 24px;
+  color: var(--primary, #3b5ccc);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
   &__heading {
     font-size: 15px;
     font-weight: 600;

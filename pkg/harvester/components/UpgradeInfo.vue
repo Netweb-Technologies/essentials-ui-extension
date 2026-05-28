@@ -33,7 +33,7 @@ export default {
   <div>
     <Banner color="warning">
       <div>
-        <strong>{{ t('harvester.upgradePage.upgradeInfo.warning') }}:</strong>
+        <strong>{{ t('harvester.upgr adePage.upgradeInfo.warning') }}:</strong>
         <p
           v-clean-html="t('harvester.upgradePage.upgradeInfo.doc', {url: upgradeLink}, true)"
           class="mb-5"
